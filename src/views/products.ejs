@@ -10,7 +10,7 @@
           <a class="nav-link active" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/product/all">Menu</a>
+          <a class="nav-link" href="/admin/product/all">Products</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/user/all">Users</a>
@@ -92,21 +92,45 @@
             <span class="new-dish-txt">NEW PRODUCT DETAIL</span>
           </div>
           <div class="login-input-frame">
-            <div class="long-input">
-              <label>Product Name</label>
-              <input
-                type="text"
-                placeholder="Name"
-                name="productName"
-                class="product-name"
-              />
-            </div>
             <input
               name="productStatus"
               value="PAUSE"
               class="product-status"
               hidden
             />
+          </div>
+          <div class="half-input-frame">
+            <div class="half-input">
+              <label>Product Type</label>
+              <select class="product-collection" name="productCollection">
+                <option value="Tires" selected>Tires</option>
+                <option value="SALAD">Lights</option>
+                <option value="DESSERT">Brakes</option>
+                <option value="Engine Oil">Engine Oil</option>
+              </select>
+            </div>
+
+            <div class="half-input" id="product-collection">
+              <label>Tires Volume</label>
+              <select class="product-size" name="productSize">
+                <option value="Safety">Michelin</option>
+                <option value="Sport" selected>Firelli</option>
+                <option value="Cheap">Hankook</option>
+                <option value="Drift">Nitto</option>
+                <option value="Snow">Nokian</option>
+              </select>
+            </div>
+
+            <div class="half-input" id="product-volume" style="display: none">
+              <label>Engine Oil Volume</label>
+              <select class="product-volume" name="productVolume">
+                <option value="0.5">0,5 liters</option>
+                <option value="1" selected>1 liters</option>
+                <option value="1.2">1,2 liters</option>
+                <option value="1.5">1,5 liters</option>
+                <option value="2">2 liters</option>
+              </select>
+            </div>
           </div>
           <div class="half-input-frame">
             <div class="half-input">
@@ -126,39 +150,6 @@
                 name="productLeftCount"
                 class="product-left-count"
               />
-            </div>
-          </div>
-          <div class="half-input-frame">
-            <div class="half-input">
-              <label>Product Type</label>
-              <select class="product-collection" name="productCollection">
-                <option value="DISH" selected>Dish</option>
-                <option value="SALAD">Salad</option>
-                <option value="DESSERT">Dessert</option>
-                <option value="DRINK">Drink</option>
-                <option value="OTHER">Other</option>
-              </select>
-            </div>
-
-            <div class="half-input" id="product-collection">
-              <label>Dish Volume</label>
-              <select class="product-size" name="productSize">
-                <option value="SMALL">Small</option>
-                <option value="NORMAL" selected>Normal</option>
-                <option value="LARGE">Large</option>
-                <option value="SET">Set</option>
-              </select>
-            </div>
-
-            <div class="half-input" id="product-volume" style="display: none">
-              <label>Drink Volume</label>
-              <select class="product-volume" name="productVolume">
-                <option value="0.5">0,5 liters</option>
-                <option value="1" selected>1 liters</option>
-                <option value="1.2">1,2 liters</option>
-                <option value="1.5">1,5 liters</option>
-                <option value="2">2 liters</option>
-              </select>
             </div>
           </div>
           <div class="long-input">

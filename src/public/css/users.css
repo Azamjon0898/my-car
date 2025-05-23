@@ -1,7 +1,15 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
 .users-container {
   position: relative;
-  width: auto;
-  height: auto;
+  height: 100%;
+  width: 100%;
   min-width: 100%;
   min-height: 100%;
   display: flex;
@@ -16,20 +24,33 @@
 }
 
 .users-container .nav-item a {
-  color: #e3c08d;
+  color: #ffffff;
 }
 
 .users-container .nav-item a.disabled {
-  color: #898071;
+  color: #ffffff;
 }
 
 .users-container .navigation-menu {
-  position: absolute;
-  z-index: 10000;
-  top: 1%;
-  color: #efefee;
-  font-size: 40px;
-  font-family: monospace;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.nav {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+.nav-link {
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  color: #ccc !important;
 }
 
 .users-container .users-frame {
@@ -37,7 +58,6 @@
   padding-bottom: 80px;
   width: 100%;
   height: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
