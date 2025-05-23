@@ -40,6 +40,10 @@
   flex-direction: column;
 }
 
+.login-container .login-frame .login-top a {
+  text-decoration: underline;
+}
+
 .login-container .login-top span {
   font-family: "Poppins";
   text-align: center;
