@@ -55,40 +55,56 @@ console.log("Products frontend javascript file");
 // });
 $(function () {
   $(".product-collection").on("change", function () {
-    const isDrink = $(this).val() === "DRINK";
-    $("#product-volume").toggle(isDrink);
-    $("#product-collection").toggle(!isDrink);
-  });
+    // Barcha volume sectionlarni avval yashiramiz
+    $("#product-collection").hide();
+    $("#product-type").hide();
+    $("#product-brakes").hide();
+    $("#product-volume").hide();
 
-  $("#process-btn").on("click", function () {
-    $(".dish-container").slideToggle(500);
-    $(this).hide();
-  });
+    // Tanlangan qiymat
+    const selected = $(this).val();
 
-  $("#cancel-btn").on("click", () => {
-    $(".dish-container").slideToggle(100);
-    $("#process-btn").css("display", "flex");
-  });
-
-  $(".new-product-status").on("change", async function () {
-    const id = this.id;
-    const productStatus = $(this).val();
-
-    try {
-      const { data } = await axios.post(`/admin/product/${id}`, {
-        productStatus: productStatus,
-      });
-
-      if (data?.data) {
-        $(this).blur();
-      } else {
-        alert("Product status update failed");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Product update failed");
+    // Faqat keraklisini ko'rsatamiz
+    if (selected === "Tires") {
+      $("#product-collection").show();
+    } else if (selected === "Lights") {
+      $("#product-type").show();
+    } else if (selected === "Brakes") {
+      $("#product-brakes").show();
+    } else if (selected === "Oil") {
+      $("#product-volume").show();
     }
   });
+});
+
+$("#process-btn").on("click", function () {
+  $(".dish-container").slideToggle(500);
+  $(this).hide();
+});
+
+$("#cancel-btn").on("click", () => {
+  $(".dish-container").slideToggle(100);
+  $("#process-btn").css("display", "flex");
+});
+
+$(".new-product-status").on("change", async function () {
+  const id = this.id;
+  const productStatus = $(this).val();
+
+  try {
+    const { data } = await axios.post(`/admin/product/${id}`, {
+      productStatus: productStatus,
+    });
+
+    if (data?.data) {
+      $(this).blur();
+    } else {
+      alert("Product status update failed");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Product update failed");
+  }
 });
 
 // function validateForm() {
