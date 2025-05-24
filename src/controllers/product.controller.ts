@@ -10,7 +10,13 @@ import {
 } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { ProductInput, Product, ProductInquiry } from "../libs/types/product";
-import { ProductCollection } from "../libs/enums/product.enum";
+import {
+  ProductBrakes,
+  ProductCollection,
+  ProductSize,
+  ProductStatus,
+  ProductType,
+} from "../libs/enums/product.enum";
 
 const productService = new ProductService();
 const productController: T = {};
@@ -83,11 +89,22 @@ productController.createNewProduct = async (
     if (!req.files?.length) {
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
     }
+
     const data: ProductInput = req.body;
-    data.productImages = req.files.map((ele) => {
-      return ele.path.replace(/\\/g, "");
-    });
-    console.log(data);
+
+    data.productImages = req.files.map((ele) => ele.path.replace(/\\/g, ""));
+
+    // ENUM'lar va number'lar
+    data.productStatus = data.productStatus?.toUpperCase() as ProductStatus;
+    data.productCollection =
+      data.productCollection?.toUpperCase() as ProductCollection;
+    data.productSize = data.productSize?.toUpperCase() as ProductSize;
+    data.productType = data.productType?.toUpperCase() as ProductType;
+    data.productBrakes = data.productBrakes?.toUpperCase() as ProductBrakes;
+
+    data.productPrice = Number(data.productPrice);
+    data.productLeftCount = Number(data.productLeftCount);
+    data.productVolume = Number(data.productVolume);
 
     const result = await productService.createNewProduct(data);
 
@@ -100,7 +117,7 @@ productController.createNewProduct = async (
     const message =
       err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
     res.send(
-      `<script> alert(${message});
+      `<script> alert("${message}");
        window.location.replace("/admin/product/all")</script>`
     );
   }

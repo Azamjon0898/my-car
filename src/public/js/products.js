@@ -134,7 +134,6 @@ function validateForm() {
   console.log("Validating form");
 
   const requiredFields = [
-    ".product-name",
     ".product-status",
     ".product-price",
     ".product-left-count",

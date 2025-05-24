@@ -4,13 +4,15 @@ import {
   ProductVolume,
   ProductStatus,
   ProductCollection,
+  ProductType,
+  ProductBrakes,
 } from "../libs/enums/product.enum";
 
 const productSchema = new Schema(
   {
     productName: {
       type: String,
-      required: true,
+      required: false,
     },
 
     productStatus: {
@@ -38,7 +40,7 @@ const productSchema = new Schema(
     productSize: {
       type: String,
       enum: ProductSize,
-      default: ProductSize.NORMAL,
+      default: ProductSize.SAFETY,
     },
 
     productVolume: {
@@ -59,6 +61,16 @@ const productSchema = new Schema(
     productViews: {
       type: Number,
       default: 0,
+    },
+
+    productType: {
+      type: String,
+      default: ProductType.AUDI,
+    },
+
+    productBrakes: {
+      type: String,
+      default: ProductBrakes.AKEBONO,
     },
   },
   { timestamps: true }

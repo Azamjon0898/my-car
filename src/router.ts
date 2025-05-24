@@ -26,6 +26,13 @@ router.post(
   memberController.updateMember
 );
 
+router.post(
+  "/product/create",
+  memberController.verifyAuth,
+  uploader("products").array("productImages"),
+  productController.createNewProduct
+);
+
 router.get("/member/top-users", memberController.getTopUsers);
 
 // Product

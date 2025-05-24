@@ -4,9 +4,8 @@ html {
   padding: 0;
   min-height: 100%;
   font-family: Arial, sans-serif;
-  background: linear-gradient(-45deg, #0bd79a, #d8ed51, #219bc7, #7cfcde);
   background-repeat: no-repeat;
-  background-attachment: scroll; /* scroll bilan harakat qiladi */
+  background-attachment: scroll;
   background-size: 100% 100%;
 }
 
@@ -17,6 +16,10 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(-45deg, #0bd79a, #d8ed51, #219bc7, #7cfcde);
+  width: 100%;
+  height: auto;
+  min-height: 100%;
 }
 
 .navigation-menu {
@@ -56,7 +59,7 @@ html {
 .products-container .restaurant-menu-frame .board {
   position: relative;
   margin-top: 100px;
-  width: 1320px;
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: column;
